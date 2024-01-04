@@ -8,6 +8,9 @@ export default {
 				'sit-yellow': 'rgb(243, 222, 138)',
 				'sit-lblue': 'rgb(80, 178, 192)',
 				'sit-dblue': 'rgb(0, 38, 66)'
+			},
+			fontSize: {
+				clamp: 'clamp(1.75rem, 5vw, 6vw)'
 			}
 		}
 	},
