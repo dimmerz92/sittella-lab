@@ -3,7 +3,7 @@
 	import Nav from './nav.svelte';
 </script>
 
-<header class="sticky top-0 sm:flex sm:flex-row bg-sit-dblue text-neutral-200 px-4 py-2">
+<header class="sticky top-0 sm:flex sm:flex-row bg-sit-dblue text-neutral-200 px-4 py-2 z-10">
 	<Logo />
 	<Nav />
 </header>
