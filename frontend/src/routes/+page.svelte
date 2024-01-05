@@ -1,5 +1,4 @@
 <script>
-	import Footer from '../components/footer.svelte';
 	import Hero from '../components/hero.svelte';
 	import LoadOnScroll from '../components/loadOnScroll.svelte';
 	import PreferredTech from '../components/preferredTech.svelte';
