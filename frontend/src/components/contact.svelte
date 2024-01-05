@@ -39,7 +39,7 @@
 			enquiry.
 		</p>
 	</div>
-	<form id="contact_form" class="flex flex-col gap-2 w-full" on:submit={submitForm}>
+	<form id="contact" class="flex flex-col gap-2 w-full" on:submit={submitForm}>
 		<div class="flex gap-1 h-8">
 			<label for="first_name" class="sr-only">First Name</label>
 			<input
