@@ -3,6 +3,8 @@
 	import { inview, type ObserverEventDetails } from 'svelte-inview';
 
 	export let className: string;
+	export let duration: number;
+	export let y: number;
 
 	let isInView: boolean;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
@@ -12,7 +14,7 @@
 
 <div use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }} on:inview_change={handleChange}>
 	{#if isInView}
-		<div class={className} in:fly={{ y: 200, duration: 1000 }}>
+		<div class={className} in:fly={{ y: y, duration: duration }}>
 			<slot />
 		</div>
 	{/if}
