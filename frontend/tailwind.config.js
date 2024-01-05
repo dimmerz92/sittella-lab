@@ -10,7 +10,12 @@ export default {
 				'sit-dblue': 'rgb(0, 38, 66)'
 			},
 			fontSize: {
-				clamp: 'clamp(1.75rem, 5vw, 6vw)'
+				'clamp-sm': 'clamp(1.75rem, 5vw, 6vw)',
+				'clamp-xl': 'clamp(1.75rem, 4vw, 5vw)'
+			},
+			screens: {
+				'3xl': '1920px',
+				'4xl': '2560px'
 			}
 		}
 	},
