@@ -2,8 +2,8 @@
 	import { fly } from 'svelte/transition';
 	import { inview, type ObserverEventDetails } from 'svelte-inview';
 
-	export let className: string;
 	export let duration: number;
+	export let margin: string;
 	export let y: number;
 
 	let isInView: boolean;
@@ -12,9 +12,9 @@
 	};
 </script>
 
-<div use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }} on:inview_change={handleChange}>
+<div use:inview={{ unobserveOnEnter: true, rootMargin: margin }} on:inview_change={handleChange}>
 	{#if isInView}
-		<div class={className} in:fly={{ y: y, duration: duration }}>
+		<div in:fly={{ y: y, duration: duration }}>
 			<slot />
 		</div>
 	{/if}
