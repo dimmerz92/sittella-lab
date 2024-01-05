@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { sendContactMessage } from '$lib/contact';
+	import { sendContactMessage } from '$lib';
 	import { onMount } from 'svelte';
 
 	let formContainer: HTMLElement;
