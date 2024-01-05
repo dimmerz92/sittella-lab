@@ -22,7 +22,10 @@
 	});
 </script>
 
-<section id="home" class="flex flex-col my-4 h-52 sm:h-80 4xl:h-[520px] justify-between">
+<section
+	id="home"
+	class="flex flex-col my-4 h-52 sm:h-80 4xl:h-[520px] justify-between scroll-m-64"
+>
 	{#key i}
 		<h1
 			class=" text-[1.75rem] sm:text-clamp-sm xl:text-clamp-xl text-center sm:text-left mb-2 sm:mb-0 sm:w-[80%] xl:w-[60%]"
