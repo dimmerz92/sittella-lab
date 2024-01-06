@@ -1,15 +1,31 @@
+import { get, post } from '../helpers/http';
+
+type TextResponse = {
+	message: string;
+};
+
 export async function sendContactMessage(data: FormData) {
 	try {
-		const res = await fetch(`${import.meta.env.VITE_API_URL}/api/chat`, {
-			method: 'POST',
-			body: data
-		});
+		const payload = Object.fromEntries(data.entries());
 
-		if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
+		const res: TextResponse = await post(`${import.meta.env.VITE_API_URL}/api/contact`, payload);
 
-		return await res.text();
+		if (!res.message) throw new Error(`${res}`);
+
+		return res.message;
 	} catch (err) {
 		console.log(err);
-		return '';
+	}
+}
+
+export async function getContactTemplate() {
+	try {
+		const res: TextResponse = await get(`${import.meta.env.VITE_API_URL}/api/contact`);
+
+		if (!res.message) throw new Error(`${res}`);
+
+		return res.message;
+	} catch (err) {
+		console.log(err);
 	}
 }
