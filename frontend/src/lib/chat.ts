@@ -1,21 +1,16 @@
+import { post } from '../helpers';
+
 export type GPTMessage = {
 	role: string;
 	content: string;
 };
 
-export async function sendGPTMessage(data: GPTMessage[]): Promise<GPTMessage | null> {
+export async function sendGPTMessage(payload: GPTMessage[]) {
 	try {
-		const res = await fetch(`${import.meta.env.VITE_API_URL}/api/chat`, {
-			method: 'POST',
-			body: JSON.stringify(data)
-		});
-
-		if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
-
-		const reply: GPTMessage = await res.json();
-		return reply;
+		const res: GPTMessage = await post(`${import.meta.env.VITE_API_URL}/api/chat`, payload);
+		return res;
 	} catch (err) {
 		console.log(err);
-		return null;
+		return;
 	}
 }
