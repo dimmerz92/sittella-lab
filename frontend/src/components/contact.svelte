@@ -1,25 +1,34 @@
 <script lang="ts">
-	import { sendContactMessage } from '$lib';
+	import { getContactTemplate, sendContactMessage } from '$lib';
 	import { onMount } from 'svelte';
 
 	let formContainer: HTMLElement;
+	let formText: HTMLTextAreaElement;
 
 	onMount(() => {
 		formContainer = document.getElementById('form_container')!;
+		formText = document.getElementById('message') as HTMLTextAreaElement;
 	});
+
+	const getTemplate = async (e: Event) => {
+		e.preventDefault();
+
+		const reply = await getContactTemplate();
+		if (!reply) return;
+
+		formText.value += reply;
+	};
 
 	const submitForm = async (e: Event) => {
 		e.preventDefault();
-		const form = (e.target as HTMLElement).closest('form');
 
-		if (!form) {
-			throw new Error('target is not a form');
-			return;
-		}
+		const form = (e.target as HTMLElement).closest('form');
+		if (!form) throw new Error('target is not a form');
 
 		const formData = new FormData(form);
 
 		const reply = await sendContactMessage(formData);
+		if (!reply) return;
 
 		formContainer.style.height = '60px';
 		formContainer.classList.remove(...['h-full']);
@@ -35,8 +44,9 @@
 		<h2 class="text-2xl font-medium">Get in touch.</h2>
 		<p>If you have a design ready to go, or you just want to have a chat, drop us a message!</p>
 		<p>
-			Not sure what to ask or say? Add this <button class="text-sit-orange">template</button> to your
-			enquiry.
+			Not sure what to ask or say? Add this <button class="text-sit-orange" on:click={getTemplate}
+				>template</button
+			> to your enquiry.
 		</p>
 	</div>
 	<form id="contact" class="flex flex-col gap-2 w-full" on:submit={submitForm}>
