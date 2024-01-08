@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class={`w-fit p-1 rounded-md ${
+	class={`w-fit p-4 rounded-md ${
 		role === 'user' ? 'bg-sit-lblue ml-auto text-white' : 'bg-slate-200'
 	}`}
 >
