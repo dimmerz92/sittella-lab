@@ -3,11 +3,13 @@
 	import { linear } from 'svelte/easing';
 	import { slide } from 'svelte/transition';
 	import Message from './message.svelte';
+	import Loading from './loading.svelte';
 
 	let messages: GPTMessage[] = [];
 	let textArea: HTMLTextAreaElement;
 	let initialised = false;
 	let isVisible = false;
+	let isLoading = false;
 	let lastEnter: Date | undefined;
 	const minTime = 2000; // milliseconds
 
@@ -17,12 +19,15 @@
 	};
 
 	const initialiseChat = async () => {
+		isLoading = true;
+
 		const reply = await sendGPTMessage([]);
 		if (!reply) return;
 
 		messages = [...messages, reply];
 
 		initialised = true;
+		isLoading = false;
 	};
 
 	const alterEnter = (e: KeyboardEvent) => {
@@ -52,32 +57,39 @@
 		textArea.value = '';
 
 		// send the updated array
+		isLoading = true;
 		const reply = await sendGPTMessage(messages);
 		if (!reply) return;
 
 		// update the array with response
 		messages = [...messages, reply];
+		isLoading = false;
 	};
 </script>
 
-<div class="flex flex-col gap-2 fixed bottom-0 right-0 w-full sm:w-2/5 xl:w-1/4">
+<div class="fixed bottom-0 right-0 max-h-full max-w-full flex flex-col justify-end items-end z-20">
 	{#if isVisible}
 		<div
 			transition:slide={{ duration: 300, easing: linear }}
-			class="flex flex-col h-[70vh] z-1000 sm:mr-2 bg-sit-yellow rounded-md px-2"
+			class="flex flex-col bg-sit-yellow h-screen sm:h-[768px] w-screen sm:w-96 gap-2 p-2 sm:mr-4 rounded-md shadow-lg"
 		>
-			<div class="flex justify-center items-center h-10">Virtual Assistant</div>
-			<div id="chat_window" class="flex flex-col gap-2 grow p-2 bg-white rounded-md">
+			<div class="relative flex justify-center items-center h-10">Virtual Assistant</div>
+			<div id="chat_window" class="relative flex flex-col grow bg-white rounded-md gap-2 p-2">
 				{#each messages as message}
 					<Message role={message.role} content={message.content} />
 				{/each}
+				{#if isLoading}
+					<div class="self-center mt-auto">
+						<Loading />
+					</div>
+				{/if}
 			</div>
-			<div id="chat" class="flex gap-2 py-2">
+			<div id="chat" class="flex gap-2">
 				<textarea
 					name="content"
 					id="content"
 					on:keypress={alterEnter}
-					class="grow rounded-md resize-none box-border"
+					class="grow resize-none rounded-md"
 					rows="3"
 					required
 				></textarea>
@@ -92,11 +104,7 @@
 		</div>
 	{/if}
 
-	<button
-		type="submit"
-		on:click={toggleChat}
-		class="bg-sit-dblue rounded-full p-1.5 ml-auto mr-2 mb-2"
-	>
+	<button type="submit" on:click={toggleChat} class="bg-sit-dblue p-1 m-2 rounded-full">
 		<img src="/logos/message.svg" alt="message icon" class="h-16" />
 	</button>
 </div>
