@@ -43,6 +43,27 @@
 			<p>Typescript</p>
 		</a>
 
+		<a href="https://www.python.org/" class="flex flex-col items-center">
+			<div class="flex items-center grow">
+				<img src="/logos/python.svg" alt="Typescript logo" height="50" width="50" />
+			</div>
+			<p>Python</p>
+		</a>
+
+		<a href="https://www.r-project.org/" class="flex flex-col items-center">
+			<div class="flex items-center grow">
+				<img src="/logos/R.svg" alt="Typescript logo" height="50" width="50" />
+			</div>
+			<p>R</p>
+		</a>
+
+		<a href="https://www.postgresql.org/" class="flex flex-col items-center">
+			<div class="flex items-center grow">
+				<img src="/logos/postgresql.svg" alt="OpenAI logo" height="50" width="50" />
+			</div>
+			<p>PostgreSQL</p>
+		</a>
+
 		<a href="https://openai.com/" class="flex flex-col items-center">
 			<div class="flex items-center grow">
 				<img src="/logos/openai.svg" alt="OpenAI logo" height="50" width="50" />
