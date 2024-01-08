@@ -38,7 +38,7 @@
 
 <div
 	id="form_container"
-	class="formContainer flex flex-col gap-4 items-center bg-sit-yellow h-[480px] w-5/6 sm:w-1/2 4xl:w-1/4 p-4 rounded-b-md transition-all ease-in-out duration-1000"
+	class="formContainer flex flex-col gap-4 items-center bg-sit-yellow h-[480px] sm:h-[410px] w-5/6 sm:w-1/2 4xl:w-1/4 p-4 rounded-b-md transition-all ease-in-out duration-1000"
 >
 	<div class="flex flex-col gap-2">
 		<h2 class="text-2xl font-medium">Get in touch.</h2>
