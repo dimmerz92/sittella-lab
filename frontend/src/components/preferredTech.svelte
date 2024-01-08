@@ -45,21 +45,31 @@
 
 		<a href="https://www.python.org/" class="flex flex-col items-center">
 			<div class="flex items-center grow">
-				<img src="/logos/python.svg" alt="Typescript logo" height="50" width="50" />
+				<img src="/logos/python.svg" alt="Python logo" height="50" width="50" />
 			</div>
 			<p>Python</p>
 		</a>
 
 		<a href="https://www.r-project.org/" class="flex flex-col items-center">
 			<div class="flex items-center grow">
-				<img src="/logos/R.svg" alt="Typescript logo" height="50" width="50" />
+				<img src="/logos/R.svg" alt="R logo" height="50" width="50" />
 			</div>
 			<p>R</p>
 		</a>
 
+		<a
+			href="https://www.microsoft.com/en-au/microsoft-365/excel"
+			class="flex flex-col items-center"
+		>
+			<div class="flex items-center grow">
+				<img src="/logos/excel.svg" alt="Excel logo" height="50" width="50" />
+			</div>
+			<p>Excel</p>
+		</a>
+
 		<a href="https://www.postgresql.org/" class="flex flex-col items-center">
 			<div class="flex items-center grow">
-				<img src="/logos/postgresql.svg" alt="OpenAI logo" height="50" width="50" />
+				<img src="/logos/postgresql.svg" alt="Postgresql logo" height="50" width="50" />
 			</div>
 			<p>PostgreSQL</p>
 		</a>
