@@ -110,4 +110,39 @@
 			</div>
 		</LoadOnScroll>
 	</section>
+
+	<section id="what-i-do">
+		<LoadOnScroll {duration} {y} {margin}>
+			<div class="flex flex-col sm:flex-row gap-4 bg-slate-200 p-4 rounded-md">
+				<div class="sm:w-1/2">
+					<h2 class="text-xl mb-2">What I <span class="text-sit-orange">Do</span>:</h2>
+					<ul class="list-image-[url(logos/tick.svg)] ms-8">
+						<li>Custom static or dynamic front ends</li>
+						<li>Custom back ends</li>
+						<li>Database design, implementation, and integration</li>
+						<li>External provider integrations (i.e., custom GPT assistants, messenger, etc.)</li>
+						<li>Hosting assistance</li>
+					</ul>
+				</div>
+				<div class="w-1/2">
+					<h2 class="text-xl mb-2">What I <span class="text-sit-orange">Don't</span> Do:</h2>
+					<ul class="list-image-[url(logos/cross.svg)] ms-8">
+						<li>WordPress or other template built websites</li>
+						<li>
+							Intricate Design
+							<ul class="text-xs">
+								<li>
+									My primary focus is on building/developing your designs. I can handle basic
+									layouts, colour schemes, and icons, however, intricate design is best left to the
+									professional artists!
+								</li>
+							</ul>
+						</li>
+						<li>Content creation</li>
+						<li>Ongoing host management</li>
+					</ul>
+				</div>
+			</div>
+		</LoadOnScroll>
+	</section>
 </div>
