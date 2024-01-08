@@ -1,0 +1,39 @@
+1. General Information:
+Company/Organisation Name (if applicable)
+
+2. Project Overview:
+Briefly describe the purpose of your website or project
+
+3. Timeline:
+Do you have a specific deadline for the project?
+
+4. Budget:
+Do you have a budget range in mind for this project?
+
+5. Technical Preferences:
+Preferred technologies or platforms (if any)
+Any specific integrations or third-party services required?
+Do you require a database or have an existing one you would like to use?
+
+6. Maintenance and Updates:
+Will you require ongoing maintenance and updates for the website?
+
+7. Requirements and Considerations:
+Is mobile responsiveness important for your project?
+Are there specific SEO requirements for your website?
+Are there specific security considerations for your project?
+
+8. Additional Features:
+Are there any specific features or functionalities you want to include?
+
+9. Communication Preferences:
+How would you prefer communication throughout the project?
+
+10. Legal Considerations:
+Are there any legal or compliance requirements for your project?
+
+11. Inspiration/References:
+Are there any websites or designs you like that could serve as inspiration?
+
+12. Feedback and Approval Process:
+How would you like to be involved in the development process?
