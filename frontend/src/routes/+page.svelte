@@ -36,7 +36,7 @@
 						</p>
 						<p>
 							Sittella Lab embodies the same precision and craftsmanship in the digital realm. Not
-							content with being "just a developer", Sittella Lab aims to build seemless, robust,
+							content with being "just a developer", Sittella Lab aims to build seamless, robust,
 							user-friendly, and accessible web solutions.
 						</p>
 					</div>
