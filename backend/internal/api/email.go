@@ -3,8 +3,8 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
+	"net/smtp"
 	"os"
 )
 
@@ -32,7 +32,10 @@ func EnquiryHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// send the email
-		log.Println(email)
+		if err := sendEmail(email); err != nil {
+			RespondWithError(w, http.StatusInternalServerError, err.Error())
+			return
+		}
 
 		// respond to client
 		RespondWithJSON(w, http.StatusOK, ClientResponse{
@@ -46,4 +49,40 @@ func EnquiryHandler(w http.ResponseWriter, r *http.Request) {
 			http.StatusMethodNotAllowed,
 		)
 	}
+}
+
+func sendEmail(email ClientEmail) error {
+	// create an auth object
+	auth := smtp.PlainAuth(
+		"",
+		os.Getenv("ICLOUD_USER"),
+		os.Getenv("ICLOUD_PASSWORD"),
+		os.Getenv("EMAIL_SMTP"),
+	)
+
+	// interpolate client email with email template
+	tmpl, err := os.ReadFile("txt/email_template.txt")
+	if err != nil {
+		return err
+	}
+
+	msg := fmt.Sprintf(string(tmpl),
+		os.Getenv("EMAIL"),
+		os.Getenv("EMAIL"),
+		email.FirstName+" "+email.LastName, email.Email,
+		email.Message,
+	)
+
+	// sent email to sittella and return response to client
+	if err := smtp.SendMail(
+		os.Getenv("EMAIL_SMTP")+":"+os.Getenv("EMAIL_PORT"),
+		auth,
+		os.Getenv("EMAIL"),
+		[]string{os.Getenv("EMAIL")},
+		[]byte(msg),
+	); err != nil {
+		return err
+	}
+
+	return nil
 }
