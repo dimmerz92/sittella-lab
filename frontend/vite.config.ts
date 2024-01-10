@@ -5,11 +5,6 @@ export default ({ mode }: { mode: string }) => {
 	process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
 	return defineConfig({
-		plugins: [sveltekit()],
-		server: {
-			proxy: {
-				'/api': process.env.VITE_API_PROXY
-			}
-		}
+		plugins: [sveltekit()]
 	});
 };
