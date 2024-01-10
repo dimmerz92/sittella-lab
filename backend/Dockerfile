@@ -1,10 +1,11 @@
-FROM go:1.21.5-alpine3.19
+FROM golang:1.21.5-alpine3.19
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
 
 COPY . .
-
-RUN go mod download
 RUN go build -o main .
 
-EXPOSE $PORT
-
-CMD ["./main"]
+CMD ["./app/main"]
