@@ -7,7 +7,10 @@ export type GPTMessage = {
 
 export async function sendGPTMessage(payload: GPTMessage[]) {
 	try {
-		const res: GPTMessage = await post(import.meta.env.VITE_API_URL + '/api/chat', payload);
+		const res: GPTMessage = await post(
+			process.env.VITE_API_URL || import.meta.env.VITE_API_URL + '/api/chat',
+			payload
+		);
 		return res;
 	} catch (err) {
 		console.log(err);
