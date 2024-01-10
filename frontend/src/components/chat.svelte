@@ -101,7 +101,7 @@
 			<textarea
 				name="content"
 				id="content"
-				class="grow resize-none rounded-md"
+				class="grow resize-none px-2 rounded-md"
 				bind:this={textArea}
 				on:keypress={alterEnter}
 				rows="3"
