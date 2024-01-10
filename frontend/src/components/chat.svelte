@@ -110,7 +110,7 @@
 			<button
 				id="chat_button"
 				on:click={sendMessages}
-				class="bg-sit-dblue text-white aspect-square rounded-md"
+				class="bg-sit-dblue text-white h-full aspect-square rounded-md"
 			>
 				Send
 			</button>
