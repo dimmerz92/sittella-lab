@@ -15,7 +15,7 @@
 			/>
 		</a>
 
-		<a href="https://github.com/dimmerz92" class="flex flex-col items-center">
+		<a href="https://www.facebook.com/61555521056669/" class="flex flex-col items-center">
 			<img
 				class="bg-white rounded-full"
 				src="/logos/facebook.svg"
