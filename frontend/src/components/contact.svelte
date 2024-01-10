@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { getContactTemplate, sendContactMessage } from '$lib';
 	import { onMount } from 'svelte';
+	import Spinner from './spinner.svelte';
 
 	let formContainer: HTMLElement;
 	let formText: HTMLTextAreaElement;
+	let isLoading = false;
 
 	onMount(() => {
 		formContainer = document.getElementById('form_container')!;
@@ -22,6 +24,8 @@
 	const submitForm = async (e: Event) => {
 		e.preventDefault();
 
+		isLoading = !isLoading;
+
 		const form = (e.target as HTMLElement).closest('form');
 		if (!form) throw new Error('target is not a form');
 
@@ -33,6 +37,8 @@
 		formContainer.style.height = '60px';
 		formContainer.classList.remove(...['h-full']);
 		formContainer.textContent = reply;
+
+		isLoading = !isLoading;
 	};
 </script>
 
@@ -90,8 +96,14 @@
 			placeholder="* Message"
 			required
 		/>
-		<button type="submit" class="text-sit-orange hover:text-sit-dblue text-lg font-medium">
-			Send Message
-		</button>
+		{#if isLoading}
+			<div class="self-center">
+				<Spinner />
+			</div>
+		{:else}
+			<button type="submit" class="text-sit-orange hover:text-sit-dblue text-lg font-medium">
+				Send Message
+			</button>
+		{/if}
 	</form>
 </div>
