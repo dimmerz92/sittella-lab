@@ -4,7 +4,7 @@
 	import { slide } from 'svelte/transition';
 	import Message from './message.svelte';
 	import Loading from './loading.svelte';
-	import { onMount, afterUpdate, tick } from 'svelte';
+	import { afterUpdate, tick } from 'svelte';
 
 	let messages: GPTMessage[] = [];
 	let textArea: HTMLTextAreaElement;
@@ -14,10 +14,6 @@
 	let isLoading = false;
 	let lastEnter: Date | undefined;
 	const minTime = 2000; // milliseconds
-
-	// onMount(() => {
-	// 	textArea = document.getElementById('content') as HTMLTextAreaElement;
-	// });
 
 	afterUpdate(() => {
 		if (messages) scrollToBottom(messageWindow);
