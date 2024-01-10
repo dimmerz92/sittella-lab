@@ -4,18 +4,23 @@
 	import { slide } from 'svelte/transition';
 	import Message from './message.svelte';
 	import Loading from './loading.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate, tick } from 'svelte';
 
 	let messages: GPTMessage[] = [];
 	let textArea: HTMLTextAreaElement;
+	let messageWindow: HTMLDivElement;
 	let initialised = false;
 	let isVisible = false;
 	let isLoading = false;
 	let lastEnter: Date | undefined;
 	const minTime = 2000; // milliseconds
 
-	onMount(() => {
-		textArea = document.getElementById('content') as HTMLTextAreaElement;
+	// onMount(() => {
+	// 	textArea = document.getElementById('content') as HTMLTextAreaElement;
+	// });
+
+	afterUpdate(() => {
+		if (messages) scrollToBottom(messageWindow);
 	});
 
 	const toggleChat = async () => {
@@ -68,6 +73,10 @@
 		messages = [...messages, reply];
 		isLoading = false;
 	};
+
+	const scrollToBottom = async (el: HTMLDivElement) => {
+		el.scroll({ top: el.scrollHeight, behavior: 'smooth' });
+	};
 </script>
 
 <div class="fixed bottom-0 right-0 max-h-full max-w-full flex flex-col justify-end items-end z-20">
@@ -81,6 +90,7 @@
 		<div
 			id="chat_window"
 			class="relative flex flex-col grow bg-white rounded-md gap-2 p-2 overflow-scroll"
+			bind:this={messageWindow}
 		>
 			{#each messages as message}
 				<Message role={message.role} content={message.content} />
@@ -95,8 +105,9 @@
 			<textarea
 				name="content"
 				id="content"
-				on:keypress={alterEnter}
 				class="grow resize-none rounded-md"
+				bind:this={textArea}
+				on:keypress={alterEnter}
 				rows="3"
 				required
 			></textarea>
