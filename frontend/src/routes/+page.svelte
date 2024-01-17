@@ -31,12 +31,12 @@
 						<p class="font-semibold">Sittella</p>
 						<p><em>Noun /sɪˈtɛlə/</em></p>
 						<p>
-							A Sittella is a tiny, nimble, and agile Australian bird, expertly building it's nest
+							A Sittella is a tiny, nimble, and agile Australian bird, expertly building its nest
 							among the branches
 						</p>
 						<p>
 							Sittella Lab embodies the same precision and craftsmanship in the digital realm. Not
-							content with being "just a developer", Sittella Lab aims to build seamless, robust,
+							content with being "just a developer", Sittella Lab aims to build seemless, robust,
 							user-friendly, and accessible web solutions.
 						</p>
 					</div>
